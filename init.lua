@@ -5,10 +5,7 @@ vim.opt.cursorcolumn=true
 vim.opt.relativenumber=true
 vim.opt.number=true
 vim.opt.termguicolors=true
--- vim.opt.foldmethod=indent
--- vim.opt.foldlevel=99
 
--- vim.g.UltiSnipsExpandTrigger='<f4>'
 vim.g.UltiSnipsExpandTrigger='<c-l>'
 vim.g.EasyMotion_smartcase=1
 vim.Tlist_Use_Right_Window=1
@@ -39,23 +36,11 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'Yggdroot/indentLine'
 	Plug 'ayu-theme/ayu-vim'
-
     Plug 'tpope/vim-surround'
-
-    -- Plug('codota/tabnine-nvim', {['do'] = 'dl_binaries.sh'})
-	
-	-- Plug 'prabirshrestha/vim-lsp'
-	-- Plug 'mattn/vim-lsp-settings'
-	-- Plug 'prabirshrestha/asyncomplete.vim'
-	-- Plug 'prabirshrestha/asyncomplete-lsp.vim'
-	
-	-- Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	
 	Plug 'kyazdani42/nvim-web-devicons'
 	Plug 'ThePrimeagen/vim-be-good'
 	Plug 'voldikss/vim-floaterm'
     Plug 'neovim/nvim-lspconfig'
-
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
@@ -64,7 +49,6 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 	
 	-- enable ncm2 for all buffers
 	-- autocmd BufEnter * call ncm2#enable_for_buffer()
-	-- 
 	-- IMPORTANT: :help Ncm2PopupOpen for more information
 	vim.cmd("set completeopt=noinsert,menuone,noselect")
 	
@@ -77,23 +61,11 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
     Plug 'nvim-lualine/lualine.nvim'
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-
-
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-
     Plug 'simrat39/symbols-outline.nvim'
     Plug 'luisiacc/gruvbox-baby'
-	
-	-- Setting up the LSPs
-	-- Plug 'nvim-lua/diagnostic-nvim'
-	-- Plug 'neovim/nvim-lspconfig'
-	-- Plug 'kabouzeid/nvim-lspinstall'
-	-- Plug 'glepnir/lspsaga.nvim'
 	Plug 'williamboman/nvim-lsp-installer'
-	-- Plug 'neoclide/coc.nvim'
-	-- Plug 'nvim-lua/completion-nvim'
-
     Plug 'numToStr/Comment.nvim'
     Plug 'nvim-treesitter/nvim-treesitter-context'
     Plug( 'Exafunction/codeium.vim', { [ 'branch' ] = 'main' })
@@ -133,7 +105,7 @@ vim.g.floaterm_width=250
 vim.g.floaterm_height=50
 
 
--- require('lualine').setup()
+
 require('lualine').setup({
     tabline = {
         lualine_a = {},
@@ -143,7 +115,6 @@ require('lualine').setup({
         lualine_y = {},
         lualine_z = {}
     },
-    -- sections = {lualine_c = {'lsp_progress'}, lualine_x = {'tabnine'}}
     sections = {lualine_c = {'lsp_progress'}}
 })
 require('symbols-outline').setup()
@@ -272,22 +243,11 @@ require('lspconfig')['pyright'].setup {
 --     flags = lsp_flags,
 --     capabilities = capabilities
 -- }
-require('lspconfig')['lua_ls'].setup {
+require('lspconfig')['lua_ls'].setup { -- this is to fix the deprecated warning of sumneko_lua
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities
 }
-
--- -- tabnine
--- require('tabnine').setup({
---   disable_auto_comment=true,
---   accept_keymap="<Tab>",
---   dismiss_keymap = "<C-]>",
---   debounce_ms = 800,
---   suggestion_color = {gui = "#808080", cterm = 244},
---   exclude_filetypes = {"TelescopePrompt", "NvimTree"},
---   log_file_path = nil, -- absolute path to Tabnine log file
--- })
 
 require('Comment').setup()
 
