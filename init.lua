@@ -49,7 +49,10 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 	Plug 'williamboman/nvim-lsp-installer'
     Plug 'numToStr/Comment.nvim'
     Plug 'nvim-treesitter/nvim-treesitter-context'
+    Plug 'tpope/vim-fugitive'
     Plug( 'Exafunction/codeium.vim', { [ 'branch' ] = 'main' })
+    Plug 'lewis6991/gitsigns.nvim'
+    Plug 'nvim-tree/nvim-tree.lua'
 vim.call('plug#end')
 
 require( "options" )
@@ -61,5 +64,9 @@ require('symbols-outline').setup()
 require( "plugins.cmp" )
 require( "plugins.lspconfig" )
 require( "plugins.treesitter" )
+require( "plugins.treesitter-textobject" )
 require( "plugins.treesitter_context" )
 require( "plugins.Comment" )
+require( "plugins.telescope" )
+require( "plugins.gitsigns" )
+require( "plugins.nvim-tree" )
