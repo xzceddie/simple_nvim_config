@@ -1,5 +1,6 @@
 vim.cmd([[ autocmd vimenter * hi Comment cterm = italic gui = italic ]])
 vim.cmd([[ autocmd vimenter * hi Statement cterm = italic gui = italic ]])
+vim.cmd([[ autocmd vimenter * hi KeyWord cterm = italic gui = italic ]])
 -- vim.cmd([[ autocmd vimenter * hi LineNr guibg=orange ]])
 vim.cmd([[ autocmd vimenter * TSEnable highlight ]])
 vim.cmd([[ autocmd vimenter * hi Normal ctermbg=none guibg=none ]])
