@@ -3,14 +3,15 @@ vim.cmd([[ autocmd vimenter * NvimTreeOpen ]])
 vim.cmd([[ autocmd vimenter * hi Statement cterm = italic gui = italic ]])
 vim.cmd([[ autocmd vimenter * hi KeyWord cterm = italic gui = italic ]])
 -- vim.cmd([[ autocmd vimenter * hi LineNr guibg=orange ]])
-vim.cmd([[ autocmd vimenter * TSEnable highlight ]])
-vim.cmd([[ autocmd vimenter * hi Normal ctermbg=none guibg=none ]])
+-- vim.cmd([[ autocmd vimenter * hi Normal ctermbg=none guibg=none ]])
 vim.cmd([[ set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/ ]])
 vim.cmd([[ let t_Co=256 ]])
 vim.cmd([[let &t_ZH="\e[3m"]])
 vim.cmd([[let &t_ZR="\e[23m"]])
 -- vim.cmd([[ colorscheme gruvbox-baby ]])
-vim.cmd([[ colorscheme gruvbox ]])
+vim.g.gruvbox_material_foreground = "original"
+vim.cmd([[ colorscheme gruvbox-material ]])
+-- vim.cmd([[ colorscheme gruvbox ]])
 vim.cmd([[ set encoding=UTF-8 ]])
 vim.cmd([[ set conceallevel=1 ]])
 vim.g.indentLine_conceallevel=1
@@ -34,3 +35,5 @@ vim.cmd[[ filetype plugin indent on ]]
 vim.opt.tabstop=4
 vim.opt.shiftwidth=4
 vim.opt.expandtab=true
+
+vim.cmd([[ autocmd vimenter * hi @type cterm=bold gui=bold ]])

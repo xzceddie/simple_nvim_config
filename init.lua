@@ -46,6 +46,7 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'simrat39/symbols-outline.nvim'
     Plug 'luisiacc/gruvbox-baby'
+    Plug 'sainnhe/gruvbox-material'
 	Plug 'williamboman/nvim-lsp-installer'
     Plug 'numToStr/Comment.nvim'
     Plug 'nvim-treesitter/nvim-treesitter-context'
@@ -53,6 +54,11 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
     Plug( 'Exafunction/codeium.vim', { [ 'branch' ] = 'main' })
     Plug 'lewis6991/gitsigns.nvim'
     Plug 'nvim-tree/nvim-tree.lua'
+
+    Plug 'folke/noice.nvim'
+    Plug 'MunifTanjim/nui.nvim'
+    Plug "rcarriga/nvim-notify"
+    -- Plug( 'nvim-neorg/neorg', { [ 'branch' ] = 'main' })
 vim.call('plug#end')
 
 require( "options" )
@@ -70,3 +76,30 @@ require( "plugins.Comment" )
 require( "plugins.telescope" )
 require( "plugins.gitsigns" )
 require( "plugins.nvim-tree" )
+require( "plugins.noice" )
+
+-- require('neorg').setup {
+--     -- Tell Neorg what modules to load
+--     load = {
+--         ["core.defaults"] = {}, -- Load all the default modules
+--         ["core.norg.concealer"] = {}, -- Allows for use of icons
+--         ["core.norg.dirman"] = { -- Manage your directories with Neorg
+--             config = {
+--                 workspaces = {
+--                     my_workspace = "~/neorg"
+--                 }
+--             }
+--         }
+--     },
+-- }
+--
+-- local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+--
+-- parser_configs.norg = {
+--     install_info = {
+--         url = "https://github.com/nvim-neorg/tree-sitter-norg",
+--         files = { "src/parser.c", "src/scanner.cc" },
+--         branch = "main"
+--     },
+-- }
+--
