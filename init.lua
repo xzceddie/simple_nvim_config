@@ -61,12 +61,44 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
     -- Plug( 'nvim-neorg/neorg', { [ 'branch' ] = 'main' })
 vim.call('plug#end')
 
+vim.cmd [[packadd packer.nvim]]
+require('packer').startup(function(use)
+    use({
+      "epwalsh/obsidian.nvim",
+      tag = "*",  -- recommended, use latest release instead of latest commit
+      requires = {
+        -- Required.
+        "nvim-lua/plenary.nvim",
+
+        -- see below for full list of optional dependencies 👇
+      },
+      config = function()
+        require("obsidian").setup({
+          workspaces = {
+            {
+              name = "InterviewPrep",
+              path = "/Users/xizhecheng/Library/CloudStorage/OneDrive-TheChineseUniversityofHongKong/obsidian_vaults/InterveiwPrep/"
+            },
+            {
+              name = "Personal",
+              path = "/Users/xizhecheng/Library/CloudStorage/OneDrive-TheChineseUniversityofHongKong/obsidian_vaults/Personal/"
+            },
+            {
+              name = "Work",
+              path = "/Users/xizhecheng/Library/CloudStorage/OneDrive-TheChineseUniversityofHongKong/obsidian_vaults/Work/"
+            },
+          },
+        })
+      end,
+    })
+end)
+
 require( "options" )
 require( "keymaps" )
 require( "plugins.easymotion" )
 require( "plugins.floaterm" )
 require( "plugins.lualine" )
-require('symbols-outline').setup()
+require( 'symbols-outline' ).setup()
 require( "plugins.cmp" )
 require( "plugins.lspconfig" )
 require( "plugins.treesitter" )
@@ -77,29 +109,3 @@ require( "plugins.telescope" )
 require( "plugins.gitsigns" )
 require( "plugins.nvim-tree" )
 require( "plugins.noice" )
-
--- require('neorg').setup {
---     -- Tell Neorg what modules to load
---     load = {
---         ["core.defaults"] = {}, -- Load all the default modules
---         ["core.norg.concealer"] = {}, -- Allows for use of icons
---         ["core.norg.dirman"] = { -- Manage your directories with Neorg
---             config = {
---                 workspaces = {
---                     my_workspace = "~/neorg"
---                 }
---             }
---         }
---     },
--- }
---
--- local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
---
--- parser_configs.norg = {
---     install_info = {
---         url = "https://github.com/nvim-neorg/tree-sitter-norg",
---         files = { "src/parser.c", "src/scanner.cc" },
---         branch = "main"
---     },
--- }
---
